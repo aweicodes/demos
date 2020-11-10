@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            max-width: 800px;
+            position: relative;
+        }
+        .container>img{
+            max-width: 100%;
+            max-height: 80vh;
+        }
+        .bgimg{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            border-radius: 100%;
+            overflow: hidden;
+            /* cursor: pointer; */
+            box-shadow: 0 0 5px 2px black;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: .1s;
+            /* display: none; */
+            opacity: 0;
+        }
+        .bgimg>img{
+            position: absolute;
+            /* width: 2000px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./04-01.jpg">
+        <div class="bgimg">
+            <img src="./04-01.jpg" id="bgimg">
+        </div>
+    </div>
+    <script>
+        let container = document.querySelector('.container');
+        let bgbox = document.querySelector('.bgimg');
+        let bgimg = document.querySelector('.bgimg>img');
+
+        bgimg.onload = function(){
+            // 获取容器的 宽 高 左边距离 顶部距离
+            var w = container.offsetWidth;
+            var h = container.offsetHeight;
+
+            let n = container.offsetLeft;
+            let m = container.offsetTop;
+
+            //  获取大图片的宽度
+            var bw = bgimg.width
+
+            //  给容器添加事件
+            container.addEventListener('mousemove', function(e){
+                bgbox.style.opacity = 1;
+                // 获取光标的位置
+                let o = e.clientX;
+                let t = e.clientY;
+
+                // 获取元素需要的偏移量
+                let movel = o - container.offsetLeft - bgbox.offsetWidth/2;
+                let movet = t - container.offsetTop - bgbox.offsetHeight/2;
+                let bgleft = bgimg.offsetWidth / container.offsetWidth * (o - container.offsetLeft) - bgbox.offsetWidth / 2;
+                let bgtop = bgimg.offsetHeight / container.offsetHeight * (t - container.offsetTop) - bgbox.offsetHeight / 2;
+
+
+                //  判断元素的偏移量是否在容器内
+               
+                if(movel < 0){
+                    movel = 0;
+                }else if(movel > container.offsetWidth - bgbox.offsetWidth){
+                    movel = container.offsetWidth - bgbox.offsetWidth
+                }
+
+                if(movet < 0){
+                    movet = 0;
+                }else if(movet > container.offsetHeight - bgbox.offsetHeight){
+                    movet = container.offsetHeight - bgbox.offsetHeight
+                }
+
+                // 元素偏移
+                bgbox.style.left = movel+ 'px'
+                bgbox.style.top = movet+ 'px'
+
+                bgimg.style.left = -bgleft + 'px'
+                bgimg.style.top = -bgtop+ 'px'
+            })
+            container.addEventListener('mouseout',function(){
+                bgbox.style.opacity = 0;
+            })
+        }
+    </script>
+</body>
+</html>
