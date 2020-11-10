@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background: radial-gradient(#fff,#999); */
+            background: radial-gradient(#fff, #0ff)
+            /* background: radial-gradient(#fff, #0f0) */
+        }
+        .container{
+            width: 300px;
+            height: 400px;
+            position: relative;
+        }
+        .container .item{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all .5s;
+        }
+        .container .left{
+            left: -400px;
+            filter: blur(20px);
+        }
+        .container .right{
+            left: 400px;
+            filter: blur(20px);
+        }
+        .container .middle{
+            transform: scale(1.4);
+            z-index: 10;
+        }
+        .item>img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item left" data-color='radial-gradient(#fff,#999)'><img src="./03-01.jpg"></div>
+        <div class="item middle" data-color='radial-gradient(#fff, #0ff)'><img src="./03-02.jpg"></div>
+        <div class="item right" data-color='radial-gradient(#fff, #0f0)'><img src="./03-03.jpg"></div>
+    </div>
+    <script>
+        let items = document.querySelectorAll('.item');
+        for(let i = 0; i< items.length; i++){
+            items[i].addEventListener('click', function(){
+                this.classList.remove('left', 'right', 'middle');
+                this.classList.add('middle')
+                document.body.style.background = this.dataset.color;
+
+                let left = this.previousElementSibling || items[items.length - 1];
+                let right = this.nextElementSibling || items[0];
+
+                left.classList.remove('left', 'middle', 'right');
+                left.classList.add('left');
+
+                right.classList.remove('left', 'middle', 'right');
+                right.classList.add('right')
+            })
+        }
+    </script>
+</body>
+</html>
