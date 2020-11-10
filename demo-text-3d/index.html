@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(205, 207, 223)
+        }
+        .text{
+            position: relative;
+            font-size: 50px;
+            font-weight: bold;
+            color: #fff;
+            transform: rotate(-20deg) skew(-10deg);
+        }
+        .text::after{
+            content: 'I love you';
+            font-size: 50px;
+            font-weight: bold;
+            color: rgb(27, 25, 25);
+            position: absolute;
+            filter:blur(13px);
+            left: -20px ;
+            top: 20px;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">I love you</div>
+    <script>
+        var index = 5;
+        var shadow = '';
+        for(var i = 1; i <=index; i++){
+            shadow += `-${i}px ${i}px 0 #fff,`;
+        }
+        shadow = shadow.slice(0, -1);
+        const text = document.getElementsByClassName('text')[0];
+        text.style.textShadow = shadow;
+    </script>
+</body>
+</html>
