@@ -1,0 +1,23 @@
+{
+  "id": "2239059",
+  "name": "muduoduo",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6686463",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "14190189",
+      "name": "箭头",
+      "font_class": "arrowdown",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    }
+  ]
+}

@@ -1,0 +1,468 @@
+*{
+    margin:0;
+    padding: 0;
+}
+a{
+    color: inherit
+}
+body{
+    background: #eee;
+}
+.bg{
+    width: 1200px;
+    /* overflow: hidden; */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%)
+    /* background: url(../../效果图.png) no-repeat center center; */
+}
+.bg img{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .6;
+}
+/* 头部区域 */
+header{
+    width: 1200px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 12px;
+    color: #666;  
+}
+header nav{
+    width: 1200px;
+    height: 42px;
+    border-bottom: 1px solid #cdd0d4;
+    display: flex;
+    justify-content: space-between;  
+}
+
+.h{
+    color: red !important;
+}
+
+header nav .left li{
+    float: left;
+    margin: 10px;                                                             
+}
+header nav .left li:hover{
+    color: #f01414;
+}
+
+header nav .right{
+    display: flex;
+}
+.nav-item-box{
+    position: relative; 
+}
+header .nav-item{
+    margin-right: 30px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.nav-item .iconfont{
+    font-size: 12px;
+    margin-left: 2px;
+}
+.nav-menu{
+    display: none;
+    position: absolute;
+    background: #fff;
+}
+.nav-menu li{
+    padding: 10px;
+}
+.nav-item:hover{
+    color: #f01414;
+}
+.nav-item-box:hover>.nav-menu{
+    display: block;
+}
+
+/* logo区 */
+header main{
+    display: flex;
+    width: 100%;
+    height: 125px;
+}
+header main .logo{
+    width: 131px;
+    height: 41px;
+    margin: 41px 148px 0 20px;
+    cursor: pointer;
+}
+
+header main .search{
+    /* width: 681px; */
+    height: 42px;
+    margin-top: 38px;
+}
+header main input{
+    width: 608px;
+    height: 42px;
+    border: 1px solid #cfd2d5;
+    outline: none;
+    padding-left: 12px;
+}
+header main button{
+    width: 74px;
+    height: 42px;
+    border: none;
+    outline: none;
+    background: #ca003f;
+    color: #fff;
+}
+
+/* 主题区 */
+article{
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+}
+article nav{
+    height: 50px;
+    width: 100%;
+    background: #ca003f;
+    line-height: 50px;
+    font-size: 16px;
+}
+article nav .container{
+    width: 1220px;
+    margin: 0 auto;
+    display: flex;
+    padding-left: 246px;
+}
+article nav ul li{
+    float: left;
+    padding:0 10px;
+    margin-right: 54px;
+}
+article nav ul li:hover{
+    background: #666;
+}
+article main{
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 主题侧边栏 */
+article aside{
+    width: 210px;
+    height: 567px;
+    background: #ca003f;
+    margin-top: -55px;
+    position: relative;
+}
+aside .title{
+    width: 100%;
+    line-height: 63px;
+    text-align: center;
+    font-size: 20px;
+}
+.aside-menu{
+    width: 740px;
+    height: 513px;
+    padding: 20px;
+    background: #fff;
+    position: absolute;
+    left: 200px;
+    top: 55px;
+    z-index: 9;
+    display: none;
+}
+.aside-item:hover>.aside-menu{
+    display: block;
+    color: #999;
+    line-height: 20px;
+}
+.aside-menu-item{
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.aside-menu-item .name{
+    width: 10%;
+    margin-right: 10px;
+    float: left;
+}
+.aside-menu-item .ctx{
+    float: left;
+    width: 85%;
+}
+.ctx li{
+    float: left;
+    margin: 0 10px;
+}
+.ctx li:hover{
+    color: #f01414;
+}
+aside p{
+    height: 35px;
+    line-height: 35px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 0 20px;
+}
+aside p:hover{
+    background: #fff;
+    color: #999;
+}
+aside .iconfont{
+    font-size: 12px;
+}
+
+/* 轮播区 */
+main .banner{
+    margin: 9px 0 0 9px;
+    display: flex;
+}
+main .banner .lun{
+    width: 730px;
+    height: 505px;
+    overflow: hidden;
+    position: relative;
+}
+.banner .lun img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: .5s;
+}
+main .banner .lun img.art{
+    opacity: 1;
+}
+.lun .btn-next, .lun .btn-pre{
+    position: absolute;
+    top:40%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: rgba(238, 238, 238, 0.521);
+    border-radius: 50% 0 0 50%;
+    cursor: pointer;
+}
+.lun .btn-next{
+    right: 0px;
+}
+.lun .btn-pre{
+    left: 0px;
+    transform: rotate(180deg);
+}
+.dots{
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;;
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    margin: 6px;
+}
+.dot-art{
+    background: #999;
+}
+main section{
+    width: 250px;
+    height: 505px;
+    background: #fff;
+    margin-left: 9px;
+    color: #666;
+}
+main section .info{
+    width: 100%;
+    padding: 0 20px;
+}
+.info-btn{
+    font-size: 14px;
+    color: #666;
+    cursor: pointer; 
+}
+.info-btn .iconfont{
+    font-size: 12px;
+    margin-left: 5px;
+}
+.info-item:hover{
+    color: #f01414;
+}
+main section .info-title{
+    color: #f40;
+    font-size: 20px;
+    line-height: 55px;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+}
+main section .info-item{
+    line-height: 28px;
+    cursor: pointer;
+}
+main section .fn{
+    height: 216px;
+}
+main section .fn-item{
+    width: 25%;
+    height: 72px;
+    border: 1px solid #eee;
+    float:left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.fn-item img{
+    width: 20px;
+    max-height: 30px;
+    margin-bottom: 5px;
+}
+main section .adv{
+    height: 90px;
+    overflow: hidden;
+}
+main section .adv img{
+    max-height: 90px;
+    width: 100%;
+}
+
+/* 商品区 */
+.products{
+    background: #fff;
+    overflow: hidden;
+}
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.products-title{
+    height: 79px;
+    line-height: 79px;
+    border-bottom: 1px solid #f01414;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+.products-title .left span{
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    background: #07111b;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.products-title .right{
+    margin-right: 10px;
+}
+.products-title .right .product-type{
+    font-size: 14px;
+    color: #a099b7;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    /* margin: 0 10px; */
+}
+.products-title .right .item::after{
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-left: 1px solid #f01414;
+    border-top: 1px solid #f01414;
+    background: #fff;
+    margin-top: -9px;
+    margin-left: 50%;
+    transform: rotate(45deg);
+    position: absolute;
+
+}
+.products-title .hr{
+    display: inline-block;
+    width: 1px ;
+    height: 12px;
+    background: #cfd2d5;
+    margin: 0 10px;
+}
+.products-title .right span:last-of-type{
+    display: none;
+}
+.product-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-item{
+    float: left;
+    width: 16.66%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+.product-item img{
+    display: inline-block;
+    max-width: 70%;
+}
+.product-price{
+    color: #f01414;
+    line-height: 30px;
+    text-align: center;
+}
+
+/* 服务区 */
+.service{
+    background: #fff;
+    height: 142px;
+}
+.service .container{
+    border-top: 1px solid #eee;
+    padding: 40px 0;
+    display: flex;
+}
+.service-item{
+    width: 25%;
+    padding: 0 10px;
+}
+.service-item .title{
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.service-item .des{
+    word-spacing: 20px;
+    word-break: keep-all;
+    line-height: 20px;
+}
+.service-item .des a:hover{
+    color: #999;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    align-items: center;
+}
+footer ul>li{
+    float: left;
+    margin: 5px;
+}
+footer ul>li:hover{
+    color: #f01414;
+}
+footer p{
+    line-height: 20px;
+}

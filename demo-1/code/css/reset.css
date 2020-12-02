@@ -1,0 +1,8 @@
+body,div,ul,li,header,nav,main,img,input,button,article,aside,section{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header,nav,main,article,aside,section{
+    display: block;
+}
